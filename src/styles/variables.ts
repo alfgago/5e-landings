@@ -5,17 +5,20 @@ export const COLORS = {
 }
 
 export const SIZE = {
-  mobile: "375",
-  laptop: "1080",
-  desktop: "1600",
+  xs: "767",
+  md: "1079",
+  lg: "1440",
+  xl: "2000",
 }
 
 export const DEVICE = {
-  mobile: `(min-width: ${SIZE.mobile}px)`,
-  laptop: `(min-width: ${SIZE.laptop}px)`,
-  desktop: `(min-width: ${SIZE.desktop}px)`,
+  xs: `(min-width: ${SIZE.xs}px)`,
+  md: `(min-width: ${SIZE.md}px)`,
+  lg: `(min-width: ${SIZE.lg}px)`,
+  xl: `(min-width: ${SIZE.xl}px)`,
 
-  maxmobile: `(max-width: ${SIZE.mobile}px)`,
-  maxlaptop: `(max-width: ${SIZE.laptop}px)`,
-  maxdesktop: `(max-width: ${SIZE.desktop}px)`,
+  maxxs: `(max-width: ${SIZE.xs}px)`,
+  maxmd: `(max-width: ${SIZE.md}px)`,
+  maxlg: `(max-width: ${SIZE.lg}px)`,
+  maxxl: `(max-width: ${SIZE.xl}px)`,
 }
