@@ -28,9 +28,46 @@ const queryWp = async (values: any) => {
       "Content-Type": "application/json",
     },
   })
-  cache.set(cacheKey, data)
 
-  return data
+  const mappedPosts = data.map((post: any) => {
+    const {
+      title,
+      content,
+      excerpt,
+      yoast_head,
+      author,
+      date,
+      acf,
+      _embedded,
+    } = post
+
+    const terms = _embedded["wp:term"]
+    // Map the featured_image, categories, and tags with embedded variables
+    const featuredImage = _embedded["wp:featuredmedia"]
+      ? _embedded["wp:featuredmedia"][0].source_url
+      : null
+
+    const categories = terms[0] ? terms[0].map((item: any) => item) : []
+
+    const tags = terms[1] ? terms[1].map((item: any) => item) : []
+
+    return {
+      title,
+      content,
+      excerpt,
+      categories,
+      tags,
+      yoast_head,
+      featured_image: featuredImage,
+      author,
+      publish_date: date,
+      acf,
+    }
+  })
+
+  cache.set(cacheKey, mappedPosts)
+
+  return mappedPosts
 }
 
 export default async function handler(
