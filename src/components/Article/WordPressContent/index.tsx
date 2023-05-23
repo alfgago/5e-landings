@@ -7,7 +7,7 @@ const WordPressContent = ({ content }: any) => {
   return (
     <WordPressContentStyles>
       <div
-        className="content"
+        className="content text m"
         dangerouslySetInnerHTML={{
           __html: content,
         }}
