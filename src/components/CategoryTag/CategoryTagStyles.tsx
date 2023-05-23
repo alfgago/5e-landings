@@ -13,4 +13,5 @@ export const CategoryTagStyles = styled.span<CategoryTagStylesProps>`
   line-height: 25px;
   padding: 0 14px;
   border-radius: 25px;
+  white-space: nowrap;
 `

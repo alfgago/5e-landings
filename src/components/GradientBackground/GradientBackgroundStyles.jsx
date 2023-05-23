@@ -14,11 +14,12 @@ export const GradientBackgroundStyles = styled.div`
   canvas {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -10%;
     height: 100%;
-    width: 100%;
+    width: 120%;
     opacity: 1;
     z-index: 0;
+    filter: blur(10px);
 
     &#gradient-canvas {
       z-index: 1;

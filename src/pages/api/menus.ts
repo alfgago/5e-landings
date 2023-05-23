@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 import axios from "axios"
 
 import NodeCache from "node-cache"
-const cache = new NodeCache({ stdTTL: 30, checkperiod: 120 }) // cache for 30 seconds
+const cache = new NodeCache({ stdTTL: 90, checkperiod: 240 }) // cache for 120 seconds
 
 const queryWp = async (values: any) => {
   const wpUrl =
@@ -10,19 +10,13 @@ const queryWp = async (values: any) => {
     "https://dev-learningwell-wp.pantheonsite.io"
 
   //Use different cache keys depending on parameters
-  const cacheKey = `posts_${Object.keys(values).join("_")}_${Object.values(
-    values
-  ).join("_")}`
+  const cacheKey = `menus`
   const cached = cache.get(cacheKey)
   if (cached) {
-    //return cached
+    return cached
   }
 
-  const queryParams = new URLSearchParams(values)
-  const queryString = queryParams.toString()
-  const url = `${wpUrl}/wp-json/wp/v2/posts?_embed=true&${queryString}&per_page=1`
-  console.log(cacheKey, url)
-
+  const url = `${wpUrl}/wp-json/lw/menus`
   const { data } = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",

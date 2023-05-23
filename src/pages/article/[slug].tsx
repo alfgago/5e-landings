@@ -22,7 +22,8 @@ const Article = ({ article, yoast }: any) => {
 
 export const getServerSideProps = async ({ query }: any) => {
   const wpUrl =
-    process.env.WORDPRESS_URL ?? "https://dev-learningwell-wp.pantheonsite.io"
+    process.env.NEXT_PUBLIC_WORDPRESS_URL ??
+    "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.DOMAIN ?? "http://localhost:3000"
 
   const res = await axios.get(`${domain}/api/posts?slug=${query.slug}`)

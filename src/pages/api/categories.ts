@@ -2,17 +2,20 @@ import { NextApiRequest, NextApiResponse } from "next"
 import axios from "axios"
 
 import NodeCache from "node-cache"
-const cache = new NodeCache({ stdTTL: 120 }) // cache for 120 seconds
+const cache = new NodeCache({ stdTTL: 30, checkperiod: 120 }) // cache for 120 seconds
 
 const queryWp = async (values: any) => {
   const wpUrl =
-    process.env.WORDPRESS_URL ?? "https://dev-learningwell-wp.pantheonsite.io"
+    process.env.NEXT_PUBLIC_WORDPRESS_URL ??
+    "https://dev-learningwell-wp.pantheonsite.io"
 
   //Use different cache keys depending on parameters
-  const cacheKey = `categories_${Object.values(values).join("_")}`
+  const cacheKey = `cats_${Object.keys(values).join("_")}_${Object.values(
+    values
+  ).join("_")}`
   const cached = cache.get(cacheKey)
   if (cached) {
-    return cached
+    // return cached
   }
 
   const queryParams = new URLSearchParams(values)

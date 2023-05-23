@@ -10,24 +10,26 @@ const queryWp = async (values: any) => {
     "https://dev-learningwell-wp.pantheonsite.io"
 
   //Use different cache keys depending on parameters
-  const cacheKey = `posts_${Object.keys(values).join("_")}_${Object.values(
-    values
-  ).join("_")}`
+  const cacheKey = `footer`
   const cached = cache.get(cacheKey)
   if (cached) {
-    //return cached
+    return cached
   }
 
-  const queryParams = new URLSearchParams(values)
-  const queryString = queryParams.toString()
-  const url = `${wpUrl}/wp-json/wp/v2/posts?_embed=true&${queryString}&per_page=1`
-  console.log(cacheKey, url)
-
-  const { data } = await axios.get(url, {
+  const url = `${wpUrl}/wp-json/lw/homepage`
+  const res = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",
     },
   })
+
+  const { social_links, published_by } = res.data.homepage.acf
+
+  const data = {
+    social_links,
+    published_by,
+  }
+
   cache.set(cacheKey, data)
 
   return data

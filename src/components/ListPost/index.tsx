@@ -21,7 +21,7 @@ const ListPost = ({ post }: any) => {
         </div>
         <div className="post-content">
           <div className="post-categories">
-            {post.categories.map((category: any) => (
+            {post.categories.slice(0, 2).map((category: any) => (
               <CategoryTag
                 key={category.id}
                 name={category.name}

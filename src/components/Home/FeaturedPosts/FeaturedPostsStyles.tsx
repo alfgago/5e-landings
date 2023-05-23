@@ -85,6 +85,8 @@ export const FeaturedPostsStyles = styled.section`
 
   .post-categories {
     display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
     margin-top: 15px;
     margin-bottom: 10px;

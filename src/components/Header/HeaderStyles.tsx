@@ -104,6 +104,7 @@ export const HeaderStyles = styled.section`
       top: 25px;
       left: 0;
       width: 100%;
+      z-index: 1;
 
       .content {
         display: flex;
@@ -140,6 +141,7 @@ export const HeaderStyles = styled.section`
     z-index: 1;
     width: 161px;
     height: 26px;
+    transition: 0.5s ease all;
 
     @media ${DEVICE.md} {
       width: 354px;
@@ -163,6 +165,62 @@ export const HeaderStyles = styled.section`
 
     @media ${DEVICE.md} {
       display: none;
+    }
+  }
+
+  .nav {
+    @media ${DEVICE.md} {
+      transition: 0.5s ease all;
+      height: 22px;
+      overflow: hidden;
+    }
+  }
+
+  .social-nav {
+    display: flex;
+    .topics {
+      transition: 0.5s ease all;
+      margin-right: 40px;
+      opacity: 0;
+      visibility: hidden;
+      cursor: pointer;
+      display: none;
+      @media ${DEVICE.md} {
+        display: block;
+      }
+    }
+  }
+
+  &.scrolling {
+    @media ${DEVICE.md} {
+      padding: 21px 0;
+      .logo {
+        width: 174px;
+        height: 28px;
+      }
+
+      &:not(.toggle-topics) {
+        .nav {
+          height: 0;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      &.toggle-topics {
+        padding-bottom: 10px;
+        .nav {
+          margin-top: 10px;
+        }
+      }
+      .social-nav {
+        .topics {
+          opacity: 0.6;
+          visibility: visible;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 `

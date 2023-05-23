@@ -1,23 +1,29 @@
 /* eslint-disable new-cap */
 import React from "react"
-import { ReactSVG } from 'react-svg'
+import { ReactSVG } from "react-svg"
 
 import { SocialsStyles } from "./SocialsStyles"
-import Link from "next/link"
 
-const Socials = () => {
-
+const Socials = ({ links }: any) => {
   return (
     <SocialsStyles>
-      <Link href="/">
-        <ReactSVG src="/assets/facebook.svg"/>
-      </Link>
-      <Link href="/">
-        <ReactSVG src="/assets/twitter.svg"/>
-      </Link>
-      <Link href="/">
-        <ReactSVG src="/assets/linkedin.svg"/>
-      </Link>
+      {links.map((item: any) => {
+        if (item.icon.startsWith("http")) {
+          // Render image if the icon is a URL
+          return (
+            <a href={item.link} key={item.icon} target="_blank">
+              <img src={item.icon} alt={item.icon} />
+            </a>
+          )
+        } else {
+          // Render SVG icon if the icon is not a URL
+          return (
+            <a href={item.link} key={item.icon} target="_blank">
+              <ReactSVG src={`/assets/${item.icon}.svg`} />
+            </a>
+          )
+        }
+      })}
     </SocialsStyles>
   )
 }

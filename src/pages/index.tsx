@@ -46,7 +46,8 @@ const Index = ({ page, yoast }: any) => {
 
 export const getStaticProps = async () => {
   const wpUrl =
-    process.env.WORDPRESS_URL ?? "https://dev-learningwell-wp.pantheonsite.io"
+    process.env.NEXT_PUBLIC_WORDPRESS_URL ??
+    "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.DOMAIN ?? "http://localhost:3000"
   const res = await axios.get(`${domain}/api/home`)
   const page = res.data
@@ -58,7 +59,7 @@ export const getStaticProps = async () => {
       page,
       yoast,
     },
-    revalidate: 30,
+    revalidate: 10,
   }
 }
 
