@@ -20,7 +20,7 @@ const queryWp = async (values: any) => {
 
   const queryParams = new URLSearchParams(values)
   const queryString = queryParams.toString()
-  const url = `${wpUrl}/wp-json/wp/v2/posts?_embed=true&${queryString}&per_page=1`
+  const url = `${wpUrl}/wp-json/wp/v2/posts?_embed=true&${queryString}&per_page=20`
   console.log(cacheKey, url)
 
   const { data } = await axios.get(url, {
@@ -31,7 +31,9 @@ const queryWp = async (values: any) => {
 
   const mappedPosts = data.map((post: any) => {
     const {
+      id,
       title,
+      slug,
       content,
       excerpt,
       yoast_head,
@@ -52,6 +54,8 @@ const queryWp = async (values: any) => {
     const tags = terms[1] ? terms[1].map((item: any) => item) : []
 
     return {
+      id,
+      slug,
       title,
       content,
       excerpt,

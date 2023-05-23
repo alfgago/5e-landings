@@ -1,42 +1,44 @@
-import { useEffect, useState } from "react"
 import axios from "axios"
+import { cleanYoast } from "@/utils/cleanYoast"
+import { ArticleStyles } from "@/components/Article/ArticleStyles"
 import Head from "next/head"
 import parse from "html-react-parser"
-import { SingleArticleStyles } from "@/components/SingleArticle/SingleArticleStyles"
-import { cleanYoast } from "@/utils/cleanYoast"
+import WordPressContent from "@/components/Article/WordPressContent"
 
-const Article = ({ article, yoast }: any) => {
-  console.log(article)
-  console.log(yoast)
+const Index = ({ post, yoast }: any) => {
+  console.log(post)
   return (
     <>
       <Head>{parse(yoast)}</Head>
-      <SingleArticleStyles>
-        <div className="content">
-          <h1>{article.title.rendered}</h1>
-        </div>
-      </SingleArticleStyles>
+      <ArticleStyles>
+        <h1
+          dangerouslySetInnerHTML={{
+            __html: post.title.rendered,
+          }}
+        ></h1>
+
+        <WordPressContent content={post.content.rendered} />
+      </ArticleStyles>
     </>
   )
 }
 
-export const getServerSideProps = async ({ query }: any) => {
+export const getServerSideProps = async ({ params }: any) => {
+  const { slug } = params
   const wpUrl =
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.DOMAIN ?? "http://localhost:3000"
+  const res = await axios.get(`${domain}/api/posts?slug=${slug}`)
+  const post = res.data[0]
 
-  const res = await axios.get(`${domain}/api/posts?slug=${query.slug}`)
-
-  const article = res.data[0]
-  const yoast = cleanYoast(article.yoast_head, wpUrl, domain)
-
+  const yoast = cleanYoast(post.yoast_head, wpUrl, domain)
   return {
     props: {
-      article,
+      post,
       yoast,
     },
   }
 }
 
-export default Article
+export default Index
