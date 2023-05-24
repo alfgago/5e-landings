@@ -15,14 +15,13 @@ const Socials = ({ links }: any) => {
               <img src={item.icon} alt={item.icon} />
             </a>
           )
-        } else {
-          // Render SVG icon if the icon is not a URL
-          return (
-            <a href={item.link} key={item.icon} target="_blank">
-              <ReactSVG src={`/assets/${item.icon}.svg`} />
-            </a>
-          )
         }
+        // Render SVG icon if the icon is not a URL
+        return (
+          <a href={item.link} key={item.icon} target="_blank">
+            <ReactSVG src={`/assets/${item.icon}.svg`} />
+          </a>
+        )
       })}
     </SocialsStyles>
   )

@@ -1,13 +1,14 @@
 /* eslint-disable new-cap */
 import React from "react"
 
-import { ListingStyles } from "./ListingStyles"
 import ListPost from "@/components/ListPost"
 
-const Listing = ({ posts, featured_posts }: any) => {
+import { ListingStyles } from "./ListingStyles"
+
+const Listing = ({ posts, featuredPosts }: any) => {
   const mergedArray = [...posts]
-  if (featured_posts?.length) {
-    const updatedFeaturedPosts = featured_posts.map((post: any) => ({
+  if (featuredPosts?.length) {
+    const updatedFeaturedPosts = featuredPosts.map((post: any) => ({
       ...post,
       is_featured: true,
     }))

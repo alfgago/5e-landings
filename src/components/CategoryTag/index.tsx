@@ -1,10 +1,10 @@
 /* eslint-disable new-cap */
 import React from "react"
-import { ReactSVG } from "react-svg"
+import Link from "next/link"
 import { decode } from "html-entities"
+import { ReactSVG } from "react-svg"
 
 import { CategoryTagStyles } from "./CategoryTagStyles"
-import Link from "next/link"
 
 const CategoryTag = ({ name, slug, color }: any) => {
   const textColor = color == "#ffcf24" ? "#000" : "#fff"

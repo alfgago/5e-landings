@@ -1,10 +1,9 @@
 /* eslint-disable new-cap */
 import React from "react"
-import { ReactSVG } from "react-svg"
+
+import GradientBackground from "../../GradientBackground"
 
 import { KeepLearningStyles } from "./KeepLearningStyles"
-import Link from "next/link"
-import GradientBackground from "../../GradientBackground"
 
 const KeepLearning = () => {
   return (

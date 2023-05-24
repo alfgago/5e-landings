@@ -1,11 +1,12 @@
-import axios from "axios"
 import Head from "next/head"
+import axios from "axios"
 import parse from "html-react-parser"
-import { cleanYoast } from "@/utils/cleanYoast"
-import KeepLearning from "@/components/Home/KeepLearning"
+
+import CategoryPosts from "@/components/Home/CategoryPosts"
 import FeaturedPosts from "@/components/Home/FeaturedPosts"
 import { HomeStyles } from "@/components/Home/HomeStyles"
-import CategoryPosts from "@/components/Home/CategoryPosts"
+import KeepLearning from "@/components/Home/KeepLearning"
+import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ page, yoast }: any) => {
   return (

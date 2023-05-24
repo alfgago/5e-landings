@@ -1,9 +1,11 @@
 import React from "react"
 import Image from "next/image"
-import { FeaturedPostsStyles } from "./FeaturedPostsStyles"
-import CategoryTag from "@/components/CategoryTag"
 import Link from "next/link"
+
+import CategoryTag from "@/components/CategoryTag"
 import ListPost from "@/components/ListPost"
+
+import { FeaturedPostsStyles } from "./FeaturedPostsStyles"
 
 const FeaturedPosts = ({ posts }: any) => {
   const highlightedPost = posts[0]
@@ -46,13 +48,13 @@ const FeaturedPosts = ({ posts }: any) => {
               dangerouslySetInnerHTML={{
                 __html: highlightedPost.title.rendered,
               }}
-            ></h3>
+            />
             <div
               className="post-excerpt  text s"
               dangerouslySetInnerHTML={{
                 __html: highlightedPost.excerpt.rendered,
               }}
-            ></div>
+            />
           </div>
         </Link>
         {groupedPosts.map((group, index) => (

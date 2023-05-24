@@ -32,18 +32,18 @@ const Layout = ({ children }: { children: JSX.Element }) => {
     <LayoutStyles className="main">
       <Header />
       <div className="page-content">
-      <AnimatePresence mode="wait" onExitComplete={onExitCompleteHandler}>
-        <motion.div
-          key={asPath}
-          variants={defaultVariants}
-          animate="in"
-          initial="out"
-          exit="out"
-        >
-          {children}
-        </motion.div>
+        <AnimatePresence mode="wait" onExitComplete={onExitCompleteHandler}>
+          <motion.div
+            key={asPath}
+            variants={defaultVariants}
+            animate="in"
+            initial="out"
+            exit="out"
+          >
+            {children}
+          </motion.div>
         </AnimatePresence>
-        </div>
+      </div>
       <Footer />
     </LayoutStyles>
   )

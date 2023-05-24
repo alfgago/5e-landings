@@ -1,10 +1,11 @@
-import axios from "axios"
-import { cleanYoast } from "@/utils/cleanYoast"
-import { CategoryStyles } from "@/components/Category/CategoryStyles"
 import Head from "next/head"
+import axios from "axios"
 import parse from "html-react-parser"
+
 import Banner from "@/components/Category/Banner"
+import { CategoryStyles } from "@/components/Category/CategoryStyles"
 import Listing from "@/components/Category/Listing"
+import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ page, posts, yoast }: any) => {
   return (
@@ -12,7 +13,7 @@ const Index = ({ page, posts, yoast }: any) => {
       <Head>{parse(yoast)}</Head>
       <CategoryStyles>
         <Banner category={page} posts={posts} />
-        <Listing posts={posts} featured_posts={page.featured_posts} />
+        <Listing posts={posts} featuredPosts={page.featured_posts} />
       </CategoryStyles>
     </>
   )

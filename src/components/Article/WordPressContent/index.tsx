@@ -11,7 +11,7 @@ const WordPressContent = ({ content }: any) => {
         dangerouslySetInnerHTML={{
           __html: content,
         }}
-      ></div>
+      />
     </WordPressContentStyles>
   )
 }

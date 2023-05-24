@@ -1,7 +1,9 @@
 import React from "react"
-import { CategoryPostsStyles } from "./CategoryPostsStyles"
 import Link from "next/link"
+
 import ListPost from "@/components/ListPost"
+
+import { CategoryPostsStyles } from "./CategoryPostsStyles"
 
 const CategoryPosts = ({ title, posts, categorySlug }: any) => {
   return (

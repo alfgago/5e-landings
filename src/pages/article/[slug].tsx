@@ -1,9 +1,10 @@
-import axios from "axios"
-import { cleanYoast } from "@/utils/cleanYoast"
-import { ArticleStyles } from "@/components/Article/ArticleStyles"
 import Head from "next/head"
+import axios from "axios"
 import parse from "html-react-parser"
+
+import { ArticleStyles } from "@/components/Article/ArticleStyles"
 import WordPressContent from "@/components/Article/WordPressContent"
+import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ post, yoast }: any) => {
   console.log(post)
@@ -15,7 +16,7 @@ const Index = ({ post, yoast }: any) => {
           dangerouslySetInnerHTML={{
             __html: post.title.rendered,
           }}
-        ></h1>
+        />
 
         <WordPressContent content={post.content.rendered} />
       </ArticleStyles>

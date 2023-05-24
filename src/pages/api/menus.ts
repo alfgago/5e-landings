@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import axios from "axios"
-
 import NodeCache from "node-cache"
 const cache = new NodeCache({ stdTTL: 90, checkperiod: 240 }) // cache for 120 seconds
 
@@ -9,7 +8,7 @@ const queryWp = async (values: any) => {
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
 
-  //Use different cache keys depending on parameters
+  // Use different cache keys depending on parameters
   const cacheKey = `menus`
   const cached = cache.get(cacheKey)
   if (cached) {

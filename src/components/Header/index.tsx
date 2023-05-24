@@ -1,12 +1,14 @@
 /* eslint-disable new-cap */
 import React, { useEffect, useState } from "react"
-import { useWindowSize } from "usehooks-ts"
-
-import { HeaderStyles } from "./HeaderStyles"
 import Link from "next/link"
 import axios from "axios"
-import Socials from "../Socials"
+import { useWindowSize } from "usehooks-ts"
+
 import useScrollDirection from "@/utils/useScrollDirection"
+
+import Socials from "../Socials"
+
+import { HeaderStyles } from "./HeaderStyles"
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)

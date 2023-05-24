@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import axios from "axios"
+
+import Socials from "../Socials"
 
 import { FooterStyles } from "./FooterStyles"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import Socials from "../Socials"
 
 const Footer = () => {
   const [socialLinks, setSocialLinks] = useState([])
@@ -45,7 +46,7 @@ const Footer = () => {
           <div className="flex monument m">
             <div className="col">
               <Link href="/" className="logo">
-                <img src="/assets/LearningWell.svg" />
+                <img src="/assets/LearningWell.svg" alt="LearningWell Logo" />
               </Link>
             </div>
             <ul className="col footer-menu">

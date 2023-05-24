@@ -1,9 +1,10 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
+
+import CategoryTag from "../CategoryTag"
 
 import { ListPostStyles } from "./ListPostStyles"
-import Link from "next/link"
-import CategoryTag from "../CategoryTag"
 
 const ListPost = ({ post, isFeatured }: any) => {
   const width =
@@ -58,13 +59,13 @@ const ListPost = ({ post, isFeatured }: any) => {
             dangerouslySetInnerHTML={{
               __html: post.title.rendered,
             }}
-          ></h3>
+          />
           <div
             className="post-excerpt text s"
             dangerouslySetInnerHTML={{
               __html: post.excerpt.rendered,
             }}
-          ></div>
+          />
         </div>
       </Link>
     </ListPostStyles>

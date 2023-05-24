@@ -1,11 +1,13 @@
 /* eslint-disable new-cap */
 import React from "react"
+import { decode } from "html-entities"
 import { ReactSVG } from "react-svg"
 
-import { BannerStyles } from "./BannerStyles"
-import GradientBackground from "../../GradientBackground"
-import { decode } from "html-entities"
 import ListPost from "@/components/ListPost"
+
+import GradientBackground from "../../GradientBackground"
+
+import { BannerStyles } from "./BannerStyles"
 
 const Banner = ({ category, posts }: any) => {
   const { name, description, main_color, color_2, color_3, hero_post } =
@@ -27,7 +29,7 @@ const Banner = ({ category, posts }: any) => {
             dangerouslySetInnerHTML={{
               __html: decode(description),
             }}
-          ></div>
+          />
         </div>
       </div>
       <div className="hero-post">

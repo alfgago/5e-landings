@@ -1,6 +1,6 @@
+/* eslint-disable camelcase */
 import { NextApiRequest, NextApiResponse } from "next"
 import axios from "axios"
-
 import NodeCache from "node-cache"
 const cache = new NodeCache({ stdTTL: 30, checkperiod: 120 }) // cache for 30 seconds
 
@@ -9,7 +9,7 @@ const queryWp = async (values: any) => {
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
 
-  //Use different cache keys depending on parameters
+  // Use different cache keys depending on parameters
   const cacheKey = `footer`
   const cached = cache.get(cacheKey)
   if (cached) {
