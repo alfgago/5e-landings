@@ -3,14 +3,17 @@ import { cleanYoast } from "@/utils/cleanYoast"
 import { CategoryStyles } from "@/components/Category/CategoryStyles"
 import Head from "next/head"
 import parse from "html-react-parser"
+import Banner from "@/components/Category/Banner"
+import Listing from "@/components/Category/Listing"
 
 const Index = ({ page, posts, yoast }: any) => {
-  console.log(page)
-  console.log(posts)
   return (
     <>
       <Head>{parse(yoast)}</Head>
-      <CategoryStyles></CategoryStyles>
+      <CategoryStyles>
+        <Banner category={page} posts={posts} />
+        <Listing posts={posts} featured_posts={page.featured_posts} />
+      </CategoryStyles>
     </>
   )
 }
@@ -22,7 +25,8 @@ export const getServerSideProps = async ({ params }: any) => {
     "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.DOMAIN ?? "http://localhost:3000"
   const res = await axios.get(`${domain}/api/categories?slug=${slug}`)
-  const page = res.data[0]
+
+  const page = res.data
 
   const categoryId = page.id
   const postsRes = await axios.get(
@@ -30,7 +34,7 @@ export const getServerSideProps = async ({ params }: any) => {
   )
   const posts = postsRes.data
 
-  const yoast = cleanYoast(page.yoast_head, wpUrl, domain)
+  const yoast = cleanYoast(page.yoast, wpUrl, domain)
   return {
     props: {
       page,

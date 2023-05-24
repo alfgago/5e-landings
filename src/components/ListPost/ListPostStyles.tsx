@@ -6,7 +6,13 @@ export const ListPostStyles = styled.div`
   width: 100%;
 
   .post {
+    transition: 0.5s ease all;
     display: block;
+    &:hover {
+      h3 {
+        text-decoration: underline;
+      }
+    }
   }
 
   img {
@@ -27,6 +33,13 @@ export const ListPostStyles = styled.div`
   }
 
   .post-content {
+    text-align: center;
     padding: 0 10px;
+  }
+
+  .post-excerpt {
+    p {
+      margin: 0;
+    }
   }
 `

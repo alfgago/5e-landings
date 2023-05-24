@@ -10,7 +10,7 @@ const queryWp = async (values: any) => {
     "https://dev-learningwell-wp.pantheonsite.io"
 
   //Use different cache keys depending on parameters
-  const cacheKey = `cats_${Object.keys(values).join("_")}_${Object.values(
+  const cacheKey = `categories_${Object.keys(values).join("_")}_${Object.values(
     values
   ).join("_")}`
   const cached = cache.get(cacheKey)
@@ -18,15 +18,25 @@ const queryWp = async (values: any) => {
     // return cached
   }
 
-  const queryParams = new URLSearchParams(values)
-  const queryString = queryParams.toString()
-  const url = `${wpUrl}/wp-json/wp/v2/categories?${queryString}`
-
-  const { data } = await axios.get(url, {
+  const url = `${wpUrl}/wp-json/lw/category/${values.slug}`
+  const res = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",
     },
   })
+
+  const yoastHeadUrl = `${wpUrl}/wp-json/wp/v2/categories?slug=${values.slug}`
+  const yoastRes = await axios.get(yoastHeadUrl, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  const data = {
+    ...res.data,
+    yoast: yoastRes.data[0].yoast_head,
+  }
+
   cache.set(cacheKey, data)
 
   return data

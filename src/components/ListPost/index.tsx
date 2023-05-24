@@ -5,19 +5,38 @@ import { ListPostStyles } from "./ListPostStyles"
 import Link from "next/link"
 import CategoryTag from "../CategoryTag"
 
-const ListPost = ({ post }: any) => {
+const ListPost = ({ post, isFeatured }: any) => {
+  const width =
+    post.featured_media.width ?? post.featured_media.media_details.width
+  const height =
+    post.featured_media.height ?? post.featured_media.media_details.height
+  const src = post.featured_media.url ?? post.featured_media.source_url
+  const alt = post.featured_media.alt ?? post.featured_media.caption?.rendered
+  const responsiveHeightRatio = height / width
+
   return (
-    <ListPostStyles>
+    <ListPostStyles className={isFeatured ? "article featured" : "article"}>
       <Link href={`/article/${post.slug}`} className="post">
         <div className="post-image">
-          <Image
-            src={post.featured_media.url}
-            alt={post.featured_media.alt}
-            width={586}
-            height={390}
-            placeholder="blur"
-            blurDataURL="/assets/blur-pink.jpg"
-          />
+          {isFeatured ? (
+            <Image
+              src={src}
+              alt={alt}
+              width={900}
+              height={900 * responsiveHeightRatio}
+              placeholder="blur"
+              blurDataURL="/assets/blur-pink.jpg"
+            />
+          ) : (
+            <Image
+              src={src}
+              alt={alt}
+              width={586}
+              height={390}
+              placeholder="blur"
+              blurDataURL="/assets/blur-pink.jpg"
+            />
+          )}
         </div>
         <div className="post-content">
           <div className="post-categories">
@@ -31,7 +50,7 @@ const ListPost = ({ post }: any) => {
             ))}
           </div>
           <h3
-            className="post-title h6"
+            className={`post-title ${isFeatured ? "h3" : "h6"}`}
             dangerouslySetInnerHTML={{
               __html: post.title.rendered,
             }}

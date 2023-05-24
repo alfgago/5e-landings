@@ -21,7 +21,6 @@ const queryWp = async (values: any) => {
   const queryParams = new URLSearchParams(values)
   const queryString = queryParams.toString()
   const url = `${wpUrl}/wp-json/wp/v2/posts?_embed=true&${queryString}&per_page=20`
-  console.log(cacheKey, url)
 
   const { data } = await axios.get(url, {
     headers: {
@@ -46,12 +45,22 @@ const queryWp = async (values: any) => {
     const terms = _embedded["wp:term"]
     // Map the featured_image, categories, and tags with embedded variables
     const featuredImage = _embedded["wp:featuredmedia"]
-      ? _embedded["wp:featuredmedia"][0].source_url
+      ? _embedded["wp:featuredmedia"][0]
       : null
 
-    const categories = terms[0] ? terms[0].map((item: any) => item) : []
+    const categories = terms[0]
+      ? terms[0].map((item: any) => {
+          const { acf, ...rest } = item
+          return { ...rest, ...acf }
+        })
+      : []
 
-    const tags = terms[1] ? terms[1].map((item: any) => item) : []
+    const tags = terms[0]
+      ? terms[0].map((item: any) => {
+          const { acf, ...rest } = item
+          return { ...rest, ...acf }
+        })
+      : []
 
     return {
       id,
@@ -62,7 +71,7 @@ const queryWp = async (values: any) => {
       categories,
       tags,
       yoast_head,
-      featured_image: featuredImage,
+      featured_media: featuredImage,
       author,
       publish_date: date,
       acf,
