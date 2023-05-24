@@ -16,7 +16,11 @@ const ListPost = ({ post, isFeatured }: any) => {
 
   return (
     <ListPostStyles className={isFeatured ? "article featured" : "article"}>
-      <Link href={`/article/${post.slug}`} className="post">
+      <Link
+        href={`/article/${post.slug}`}
+        className="post"
+        title={post.title.rendered}
+      >
         <div className="post-image">
           {isFeatured ? (
             <Image

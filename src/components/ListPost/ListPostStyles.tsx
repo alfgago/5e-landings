@@ -5,22 +5,28 @@ export const ListPostStyles = styled.div`
   display: block;
   width: 100%;
 
-  .post {
-    transition: 0.5s ease all;
-    display: block;
-    &:hover {
-      h3 {
-        text-decoration: underline;
-      }
-    }
-  }
-
   img {
+    transition: 0.5s ease all;
+    transform: scale(1);
     width: 100%;
   }
 
   h3 {
+    transition: 0.5s ease all;
     margin-bottom: 10px;
+    opacity: 1;
+  }
+
+  .post {
+    display: block;
+    &:hover {
+      h3 {
+        opacity: 0.8;
+      }
+      img {
+        transform: scale(1.01);
+      }
+    }
   }
 
   .post-categories {

@@ -11,7 +11,9 @@ const CategoryTag = ({ name, slug, color }: any) => {
 
   return (
     <CategoryTagStyles text={textColor} background={color} className="tag">
-      <Link href={"/category/" + slug}>{decode(name)}</Link>
+      <Link href={"/category/" + slug}>
+        <span>{decode(name)}</span>
+      </Link>
     </CategoryTagStyles>
   )
 }
