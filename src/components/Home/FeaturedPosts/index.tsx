@@ -30,6 +30,7 @@ const FeaturedPosts = ({ posts }: any) => {
               height={675}
               placeholder="blur"
               blurDataURL="/assets/blur-pink.jpg"
+              priority
             />
           </div>
           <div className="post-content">

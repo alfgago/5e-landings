@@ -72,24 +72,25 @@ export const BannerStyles = styled.section`
 
       .post-image {
         order: 2;
+        max-width-100%;
         img {
           max-width: 100%;
           width: auto;
         }
         @media ${DEVICE.xs} {
-          max-width: 100%;
+          width: 100%;
         }
 
         @media ${DEVICE.md} {
-          max-width: 495px;
+          width: 495px;
         }
 
         @media ${DEVICE.lg} {
-          max-width: 670px;
+          width: 670px;
         }
 
         @media ${DEVICE.xl} {
-          max-width: 900px;
+          width: 900px;
         }
       }
     }

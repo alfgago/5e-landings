@@ -31,6 +31,7 @@ const ListPost = ({ post, isFeatured }: any) => {
               height={900 * responsiveHeightRatio}
               placeholder="blur"
               blurDataURL="/assets/blur-pink.jpg"
+              priority
             />
           ) : (
             <Image
