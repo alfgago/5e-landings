@@ -50,10 +50,24 @@ export const getStaticProps = async () => {
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.NEXT_PUBLIC_DOMAIN ?? "https://learningwell.org"
-  const res = await axios.get(`${domain}/api/home`)
+
+  const url = `${wpUrl}/wp-json/lw/homepage`
+  const res = await axios.get(url, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+  const yoastHeadUrl = `${wpUrl}/wp-json/wp/v2/pages?slug=homepage`
+  const yoastRes = await axios.get(yoastHeadUrl, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
   const page = res.data
 
-  const yoast = cleanYoast(page.yoast, wpUrl, domain)
+  const yoast = cleanYoast(yoastRes.data[0].yoast_head, wpUrl, domain)
 
   return {
     props: {
