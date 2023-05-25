@@ -24,7 +24,7 @@ export const getServerSideProps = async ({ params }: any) => {
   const wpUrl =
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
-  const domain = process.env.DOMAIN ?? "http://localhost:3000"
+  const domain = process.env.DOMAIN ?? "learningwell.org"
   const res = await axios.get(`${domain}/api/categories?slug=${slug}`)
 
   const page = res.data
