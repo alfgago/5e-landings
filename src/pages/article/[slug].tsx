@@ -7,18 +7,12 @@ import WordPressContent from "@/components/Article/WordPressContent"
 import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ post, yoast }: any) => {
-  console.log(post)
   return (
     <>
       <Head>{parse(yoast)}</Head>
-      <ArticleStyles>
-        <h1
-          dangerouslySetInnerHTML={{
-            __html: post.title.rendered,
-          }}
-        />
 
-        <WordPressContent content={post.content.rendered} />
+      <ArticleStyles>
+        <WordPressContent content={post} />
       </ArticleStyles>
     </>
   )

@@ -36,17 +36,22 @@ const queryWp = async (values: any) => {
       content,
       excerpt,
       yoast_head,
-      author,
       date,
       acf,
       _embedded,
     } = post
 
     const terms = _embedded["wp:term"]
-    // Map the featured_image, categories, and tags with embedded variables
+
+    /* 
+    Map the featured_image, author, categories, and 
+    tags with embedded variables
+    */
     const featuredImage = _embedded["wp:featuredmedia"]
       ? _embedded["wp:featuredmedia"][0]
       : null
+
+    const author = _embedded["author"] ? _embedded["author"][0] : null
 
     const categories = terms[0]
       ? terms[0].map((item: any) => {
