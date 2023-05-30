@@ -10,14 +10,19 @@ export const FooterStyles = styled.footer`
   padding: 20px 0;
   margin-top: 120px;
 
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   @media ${DEVICE.xs} {
     margin-top: 160px;
     padding: 24px 0;
-  }
-
-  .flex {
-    display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    text-align: left;
   }
 
   .logo {
@@ -67,6 +72,42 @@ export const FooterStyles = styled.footer`
     .siteby {
       a {
         border-bottom: 1px solid #000;
+      }
+    }
+  }
+
+  @media ${DEVICE.maxxs} {
+    .col {
+      order: 0;
+      &.footer-menu {
+        order: 1;
+        margin-top: 30px;
+      }
+      &.social-links {
+        order: 2;
+        margin-top: 30px;
+      }
+      &.published-by {
+        order: 3;
+        margin-top: 50px;
+        img {
+          max-width: 160px;
+        }
+      }
+    }
+
+    .bottom {
+      position: relative;
+      .bottom-menu {
+        justify-content: left;
+        gap: 36px;
+      }
+      .siteby {
+        position: absolute;
+        right: 0;
+      }
+      &.monument.s {
+        font-size: 12px;
       }
     }
   }

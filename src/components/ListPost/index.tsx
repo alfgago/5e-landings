@@ -6,7 +6,7 @@ import CategoryTag from "../CategoryTag"
 
 import { ListPostStyles } from "./ListPostStyles"
 
-const ListPost = ({ post, isFeatured }: any) => {
+const ListPost = ({ post, isFeatured, index = 0 }: any) => {
   const width =
     post.featured_media.width ?? post.featured_media.media_details.width
   const height =
@@ -16,7 +16,11 @@ const ListPost = ({ post, isFeatured }: any) => {
   const responsiveHeightRatio = height / width
 
   return (
-    <ListPostStyles className={isFeatured ? "article featured" : "article"}>
+    <ListPostStyles
+      className={`${
+        isFeatured ? "article featured" : "article"
+      } index-${index}`}
+    >
       <Link
         href={`/article/${post.slug}`}
         className="post"
@@ -41,6 +45,7 @@ const ListPost = ({ post, isFeatured }: any) => {
               height={390}
               placeholder="blur"
               blurDataURL="/assets/blur-pink.jpg"
+              style={{ maxWidth: 586, maxHeight: 390 }}
             />
           )}
         </div>

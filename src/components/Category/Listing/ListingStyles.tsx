@@ -5,16 +5,20 @@ import { COLORS, DEVICE } from "@/styles/variables"
 export const ListingStyles = styled.section`
   .posts-list {
     width: 100%;
-    width: calc(100% + 40px);
-    display: flex;
-    flex-wrap: wrap;
+
+    @media ${DEVICE.xs} {
+      width: calc(100% + 40px);
+      display: flex;
+      flex-wrap: wrap;
+    }
 
     .article {
-      width: 33.333%;
-      padding-right: 40px;
+      width: 100%;
       margin-top: 60px;
       @media ${DEVICE.xs} {
+        width: 33.333%;
         margin-top: 80px;
+        padding-right: 40px;
       }
       @media ${DEVICE.md} {
         margin-top: 120px;
@@ -61,6 +65,14 @@ export const ListingStyles = styled.section`
 
           @media ${DEVICE.xl} {
             max-width: 900px;
+          }
+        }
+      }
+
+      &.index-3 {
+        .post {
+          .post-image {
+            order: -1;
           }
         }
       }

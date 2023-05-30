@@ -21,7 +21,12 @@ const Listing = ({ posts, featuredPosts }: any) => {
       <div className="content">
         <div className="posts-list">
           {mergedArray.map((post, index) => (
-            <ListPost key={index} post={post} isFeatured={post.is_featured} />
+            <ListPost
+              key={index}
+              post={post}
+              isFeatured={post.is_featured}
+              index={index}
+            />
           ))}
         </div>
       </div>
