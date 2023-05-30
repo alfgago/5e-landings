@@ -28,11 +28,14 @@ const queryWp = async (values: any) => {
     },
   })
 
+  console.log("data", data)
+
   const mappedPosts = data.map((post: any) => {
     const {
       id,
       title,
       slug,
+      link,
       content,
       excerpt,
       yoast_head,
@@ -71,6 +74,7 @@ const queryWp = async (values: any) => {
       id,
       slug,
       title,
+      link,
       content,
       excerpt,
       categories,

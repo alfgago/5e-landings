@@ -1,13 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable new-cap */
 import React from "react"
 import Image from "next/image"
 
+import MoreFromPosts from "@/components/Article/MoreFrom"
+import ShareIcons from "@/components/Article/ShareIcons"
 import CategoryTag from "@/components/CategoryTag"
 
 import { WordPressContentStyles } from "./WordPressContentStyles"
 
 const WordPressContent = ({ content }: any) => {
   const { highlight } = content.acf
+
   console.log("content", content)
 
   return (
@@ -53,19 +57,16 @@ const WordPressContent = ({ content }: any) => {
         </div>
       </section>
 
+      <ShareIcons article={content} />
+
       <section
-        className="content"
+        className="wp-content"
         dangerouslySetInnerHTML={{
           __html: content.content.rendered,
         }}
       />
 
-      <section className="more-from">
-        <div className="background" />
-        <div className="content">
-          <h2 className="title bradford">More from LearningWell</h2>
-        </div>
-      </section>
+      <MoreFromPosts article={content} />
     </WordPressContentStyles>
   )
 }
