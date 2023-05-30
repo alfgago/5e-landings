@@ -198,6 +198,7 @@ export const HeaderStyles = styled.section`
       .logo {
         width: 174px;
         height: 28px;
+        margin-bottom: 0;
       }
 
       &:not(.toggle-topics) {
