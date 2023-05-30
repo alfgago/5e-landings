@@ -35,10 +35,20 @@ export const ShareContainer = styled.section`
     .icons-container {
       display: flex;
       gap: 27px;
+
+      span {
+        font-family: "Monument Grotesk", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+      }
+
       .icons {
         display: flex;
         gap: 15px;
         align-items: center;
+
         img {
           height: 12px;
           width: auto;

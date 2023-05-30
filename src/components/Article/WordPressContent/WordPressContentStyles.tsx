@@ -242,6 +242,10 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
         margin: 60px auto;
       }
 
+      blockquote {
+        margin: 0;
+      }
+
       p {
         font-weight: 300;
         font-size: 28px;
