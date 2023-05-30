@@ -10,8 +10,7 @@ import GradientBackground from "../../GradientBackground"
 import { BannerStyles } from "./BannerStyles"
 
 const Banner = ({ category, posts }: any) => {
-  const { name, description, main_color, color_2, color_3, hero_post } =
-    category
+  const { name, description, main_color, color2, color3, hero_post } = category
   const heroPost = hero_post.id ? hero_post : posts[0]
 
   return (
@@ -19,8 +18,8 @@ const Banner = ({ category, posts }: any) => {
       <div className="title">
         <GradientBackground
           color1={main_color}
-          color2={color_2}
-          color3={color_3}
+          color2={color2}
+          color3={color3}
         />
         <div className="content">
           <h1 className="h1">{decode(name)}</h1>

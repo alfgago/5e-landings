@@ -146,6 +146,7 @@ export const HeaderStyles = styled.section`
     @media ${DEVICE.md} {
       width: 354px;
       height: 57px;
+      margin-bottom: 19px;
     }
   }
 

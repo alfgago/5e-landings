@@ -8,7 +8,7 @@ export const LayoutStyles = styled.main`
     margin-top: 58px;
 
     @media ${DEVICE.md} {
-      margin-top: 115px;
+      margin-top: 135px;
     }
   }
 `

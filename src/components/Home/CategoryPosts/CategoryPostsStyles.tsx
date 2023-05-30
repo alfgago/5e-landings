@@ -5,7 +5,11 @@ import { COLORS, DEVICE } from "@/styles/variables"
 export const CategoryPostsStyles = styled.section`
   position: relative;
   text-align: center;
-  padding-top: 30px;
+  margin-top: 30px;
+
+  @media ${DEVICE.md} {
+    margin-top: 115px;
+  }
 
   .content {
     > h2 {
