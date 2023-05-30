@@ -48,7 +48,10 @@ export const BannerStyles = styled.section`
   }
 
   .hero-post {
+    margin-top: -334px;
+    @media ${DEVICE.xs} {
     margin-top: -375px;
+    }
     @media ${DEVICE.md} {
       margin-top: -230px;
     }
