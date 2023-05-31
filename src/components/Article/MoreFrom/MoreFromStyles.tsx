@@ -2,15 +2,24 @@ import styled from "styled-components"
 
 import { COLORS, DEVICE } from "@/styles/variables"
 
-export const MoreFromStyles = styled.section`
+interface backgroundColors {
+  color1: string
+  color2: string
+  color3: string
+}
+
+export const MoreFromStyles = styled.section<backgroundColors>`
   position: relative;
   margin-top: 113px;
+
   @media ${DEVICE.xs} {
     margin-top: 152px;
   }
+
   @media ${DEVICE.md} {
     margin-top: 264px;
   }
+
   @media ${DEVICE.lg} {
     margin-top: 248px;
   }
@@ -22,6 +31,13 @@ export const MoreFromStyles = styled.section`
     bottom: 380px;
     left: 0;
     z-index: -1;
+    background: radial-gradient(
+      153.43% 50.96% at 50% 49.12%,
+      ${(props) => props.color1} 0%,
+      ${(props) => props.color2 + "b5"} 34.38%,
+      ${(props) => props.color3 + "38"} 65.62%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     @media ${DEVICE.xs} {
       height: 800px;
@@ -30,7 +46,14 @@ export const MoreFromStyles = styled.section`
 
     @media ${DEVICE.md} {
       height: 996px;
-      bottom: -160px;
+      bottom: -180px;
+      background: radial-gradient(
+        145.3% 47.82% at -2.64% 53.58%,
+        ${(props) => props.color1} 0%,
+        ${(props) => props.color2 + "b5"} 34.37%,
+        ${(props) => props.color3 + "38"} 65.62%,
+        rgba(255, 255, 255, 0) 100%
+      );
     }
 
     @media ${DEVICE.lg} {
@@ -181,106 +204,6 @@ export const MoreFromStyles = styled.section`
           overflow: hidden;
         }
       }
-    }
-  }
-
-  .college-mental-health {
-    background: radial-gradient(
-      153.43% 50.96% at 50% 49.12%,
-      #0047ff 0%,
-      rgba(0, 35, 125, 0.71) 34.38%,
-      rgba(20, 130, 255, 0.22) 65.62%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    @media ${DEVICE.md} {
-      background: radial-gradient(
-        145.3% 47.82% at -2.64% 53.58%,
-        #0047ff 0%,
-        rgba(0, 35, 125, 0.71) 34.38%,
-        rgba(20, 130, 255, 0.22) 65.62%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-  }
-
-  .equity-access {
-    background: radial-gradient(
-      153.43% 50.96% at 50% 49.12%,
-      #007148 0%,
-      rgba(0, 72, 47, 0.71) 34.38%,
-      rgba(0, 159, 103, 0.22) 65.62%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    @media ${DEVICE.md} {
-      background: radial-gradient(
-        145.3% 47.82% at -2.64% 53.58%,
-        #007148 0%,
-        rgba(0, 72, 47, 0.71) 34.38%,
-        rgba(0, 159, 103, 0.22) 65.62%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-  }
-
-  .human-flourishing {
-    background: radial-gradient(
-      153.43% 50.96% at 50% 49.12%,
-      #ffcf24 0%,
-      rgba(160, 101, 0, 0.71) 34.38%,
-      rgba(230, 157, 0, 0.22) 65.62%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    @media ${DEVICE.md} {
-      background: radial-gradient(
-        145.3% 47.82% at -2.64% 53.58%,
-        #ffcf24 0%,
-        rgba(160, 101, 0, 0.71) 34.38%,
-        rgba(230, 157, 0, 0.22) 65.62%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-  }
-
-  .perspectives {
-    background: radial-gradient(
-      153.43% 50.96% at 50% 49.12%,
-      #7341e0 0%,
-      rgba(78, 21, 202, 0.71) 34.38%,
-      rgba(177, 117, 255, 0.22) 65.62%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    @media ${DEVICE.md} {
-      background: radial-gradient(
-        145.3% 47.82% at -2.64% 53.58%,
-        #7341e0 0%,
-        rgba(78, 21, 202, 0.71) 34.38%,
-        rgba(177, 117, 255, 0.22) 65.62%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-  }
-
-  .teaching-learning {
-    background: radial-gradient(
-      153.43% 50.96% at 50% 49.12%,
-      #d43500 0%,
-      rgba(244, 98, 1, 0.71) 34.38%,
-      rgba(214, 125, 0, 0.22) 65.62%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    @media ${DEVICE.md} {
-      background: radial-gradient(
-        145.3% 47.82% at -2.64% 53.58%,
-        #d43500 0%,
-        rgba(244, 98, 1, 0.71) 34.37%,
-        rgba(214, 125, 0, 0.22) 65.62%,
-        rgba(255, 255, 255, 0) 100%
-      );
     }
   }
 `

@@ -15,7 +15,7 @@ export const HeaderStyles = styled.section`
   transition: 0.5s ease all;
   color: ${COLORS.black};
   background: ${COLORS.white};
-  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 
   @media ${DEVICE.md} {
     padding-top: 25px;
@@ -51,7 +51,7 @@ export const HeaderStyles = styled.section`
         height: calc(100% - 58px);
         background: ${COLORS.white};
         z-index: 0;
-        margin-top: 58px;
+        margin-top: 57px;
 
         a {
           opacity: 1;

@@ -5,10 +5,10 @@ export const LayoutStyles = styled.main`
   position: relative;
 
   .page-content {
-    margin-top: 58px;
+    margin-top: 57px;
 
     @media ${DEVICE.md} {
-      margin-top: 135px;
+      margin-top: 134px;
     }
   }
 `

@@ -6,7 +6,7 @@ export const FooterStyles = styled.footer`
   position: relative;
   width: 100%;
   color: ${COLORS.black};
-  border-top: 2px solid ${COLORS.black};
+  border-top: 1px solid ${COLORS.black};
   padding: 20px 0;
   margin-top: 120px;
 
