@@ -7,6 +7,7 @@ import WordPressContent from "@/components/Article/WordPressContent"
 import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ post, yoast }: any) => {
+  console.log(post)
   return (
     <>
       <Head>{parse(yoast)}</Head>
@@ -24,8 +25,17 @@ export const getServerSideProps = async ({ params }: any) => {
     process.env.NEXT_PUBLIC_WORDPRESS_URL ??
     "https://dev-learningwell-wp.pantheonsite.io"
   const domain = process.env.NEXT_PUBLIC_DOMAIN ?? "https://learningwell.org"
-  const res = await axios.get(`${domain}/api/posts?slug=${slug}`)
-  const post = res.data[0]
+  const res = await axios.get(`${wpUrl}/api/posts?slug=${slug}`)
+  const postData = res.data[0]
+
+  const additionalRes = await axios.get(`${wpUrl}/wp-json/lw/post/${slug}`)
+  const additionalPostData = additionalRes.data
+
+  const post = {
+    ...postData,
+    blocks: additionalPostData.blocks,
+    primaryCategory: additionalPostData.primary_category,
+  }
 
   const yoast = cleanYoast(post.yoast_head, wpUrl, domain)
   return {
