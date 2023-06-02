@@ -7,6 +7,9 @@ import MoreFromPosts from "@/components/Article/MoreFrom"
 import ShareIcons from "@/components/Article/ShareIcons"
 import CategoryTag from "@/components/CategoryTag"
 
+import Block from "../Block"
+import CarouselBlock from "../CarouselBlock"
+
 import { WordPressContentStyles } from "./WordPressContentStyles"
 
 const WordPressContent = ({ content }: any) => {
@@ -59,12 +62,12 @@ const WordPressContent = ({ content }: any) => {
 
       <ShareIcons article={content} />
 
-      <section
-        className="wp-content"
-        dangerouslySetInnerHTML={{
-          __html: content.content.rendered,
-        }}
-      />
+      {content.blocks.map((block: any, index: number) => {
+        if (block.blockName === "acf/lw-carousel") {
+          return <CarouselBlock key={"block-" + index} block={block} />
+        }
+        return <Block key={"block-" + index} block={block} />
+      })}
 
       <MoreFromPosts article={content} />
     </WordPressContentStyles>
