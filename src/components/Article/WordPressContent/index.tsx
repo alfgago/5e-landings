@@ -13,9 +13,8 @@ import CarouselBlock from "../CarouselBlock"
 import { WordPressContentStyles } from "./WordPressContentStyles"
 
 const WordPressContent = ({ content }: any) => {
+  console.log(content)
   const { highlight } = content.acf
-
-  console.log("content", content)
 
   return (
     <WordPressContentStyles highlight={highlight}>
