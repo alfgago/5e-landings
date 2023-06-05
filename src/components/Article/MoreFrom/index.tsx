@@ -11,9 +11,17 @@ import { MoreFromStyles } from "./MoreFromStyles"
 
 const MoreFromPosts = ({ article }: any) => {
   const [moreFromPosts, setMoreFromPosts] = useState([]) as any
+  const [colors, setColors] = useState({
+    color1: article.categories[0].main_color,
+    color2: article.categories[0].color_2,
+    color3: article.categories[0].color_3,
+  })
 
   useEffect(() => {
     getMoreFrom()
+    if (article.primaryCategory.slug) {
+      getPrimaryCategoryColors()
+    }
   }, [])
 
   const getMoreFrom = async () => {
@@ -24,11 +32,23 @@ const MoreFromPosts = ({ article }: any) => {
     setMoreFromPosts(data)
   }
 
+  const getPrimaryCategoryColors = async () => {
+    const domain = process.env.NEXT_PUBLIC_DOMAIN ?? "https://learningwell.org"
+    const { data } = await axios.get(
+      `${domain}/api/categories?slug=${article.primaryCategory.slug}`
+    )
+    setColors({
+      color1: data.main_color,
+      color2: data.color2,
+      color3: data.color3,
+    })
+  }
+
   return (
     <MoreFromStyles
-      color1={article.categories[0].main_color}
-      color2={article.categories[0].color_2}
-      color3={article.categories[0].color_3}
+      color1={colors.color1}
+      color2={colors.color2}
+      color3={colors.color3}
     >
       <div className="background" />
       <div className="content more-from-content">
@@ -46,14 +66,17 @@ const MoreFromPosts = ({ article }: any) => {
                 </div>
 
                 <div className="post-categories">
-                  {data.categories.map((category: any) => (
-                    <CategoryTag
-                      key={data.id + "-" + category.slug}
-                      name={category.name}
-                      color={category.main_color}
-                      slug={category.slug}
-                    />
-                  ))}
+                  {data.categories.map(
+                    (category: any) =>
+                      category.slug == article.primaryCategory.slug && (
+                        <CategoryTag
+                          key={data.id + "-" + category.slug}
+                          name={category.name}
+                          color={category.main_color}
+                          slug={category.slug}
+                        />
+                      )
+                  )}
                 </div>
 
                 <h2

@@ -9,8 +9,13 @@ export const CarouselBlockStyles = styled.div`
 
   .swiper {
     padding-bottom: 45px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
     @media ${DEVICE.xs} {
       padding-bottom: 7px;
+      margin-top: 60px;
+      margin-bottom: 0;
     }
   }
 

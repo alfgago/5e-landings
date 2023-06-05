@@ -10,10 +10,9 @@ import CategoryTag from "@/components/CategoryTag"
 import { BlockStyles } from "./BlockStyles"
 
 const Block = ({ block }: any) => {
-  console.log(block)
   return (
     <BlockStyles
-      className="wp-content"
+      className="content wp-content"
       dangerouslySetInnerHTML={{
         __html: block.innerHTML,
       }}

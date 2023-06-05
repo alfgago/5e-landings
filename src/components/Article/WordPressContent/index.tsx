@@ -9,11 +9,13 @@ import CategoryTag from "@/components/CategoryTag"
 
 import Block from "../Block"
 import CarouselBlock from "../CarouselBlock"
+import ImageText from "../ImageText"
+import TwoImages from "../TwoImages"
+import VideoBlock from "../Video"
 
 import { WordPressContentStyles } from "./WordPressContentStyles"
 
 const WordPressContent = ({ content }: any) => {
-  console.log(content)
   const { highlight } = content.acf
 
   return (
@@ -64,6 +66,12 @@ const WordPressContent = ({ content }: any) => {
       {content.blocks.map((block: any, index: number) => {
         if (block.blockName === "acf/lw-carousel") {
           return <CarouselBlock key={"block-" + index} block={block} />
+        } else if (block.blockName === "acf/lw-twoimages") {
+          return <TwoImages key={"block-" + index} block={block} />
+        } else if (block.blockName === "acf/lw-imagetext") {
+          return <ImageText key={"block-" + index} block={block} />
+        } else if (block.blockName === "core/embed") {
+          return <VideoBlock key={"block-" + index} block={block} />
         }
         return <Block key={"block-" + index} block={block} />
       })}

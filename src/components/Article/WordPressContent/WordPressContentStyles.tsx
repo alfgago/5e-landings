@@ -43,6 +43,9 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     @media ${DEVICE.xl} {
       height: ${(props) => (props.highlight === "small" ? "674px" : "866px")};
     }
+    img {
+      object-fit: cover;
+    }
   }
 
   .article-title {
@@ -141,15 +144,14 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     ul,
     ol,
     .wp-block-embed {
-      max-width: 390px;
-      padding: 0 25px;
+      max-width: 340px;
 
       @media ${DEVICE.xs} {
-        max-width: 758px;
+        max-width: 708px;
       }
 
       @media ${DEVICE.md} {
-        max-width: 720px;
+        max-width: 670px;
       }
     }
 
@@ -276,6 +278,32 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
         text-align: center;
         color: #000000;
         display: inline-block;
+      }
+    }
+
+    .wp-block-image {
+      margin: 60px auto;
+      max-width: 340px;
+
+      @media ${DEVICE.xs} {
+        max-width: 708px;
+      }
+
+      @media ${DEVICE.md} {
+        max-width: 670px;
+      }
+
+      .wp-element-caption {
+        font-family: "Monument Grotesk", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        margin-top: 10px;
+
+        @media ${DEVICE.md} {
+          margin-top: 15px;
+        }
       }
     }
   }

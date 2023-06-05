@@ -12,8 +12,6 @@ import "swiper/css/pagination"
 import "swiper/css/navigation"
 
 const CarouselBlock = ({ block }: any) => {
-  console.log(block)
-
   return (
     <CarouselBlockStyles>
       <Swiper
