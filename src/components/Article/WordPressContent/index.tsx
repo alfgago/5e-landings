@@ -63,19 +63,22 @@ const WordPressContent = ({ content }: any) => {
 
       <ShareIcons article={content} />
 
-      {content.blocks.map((block: any, index: number) => {
-        if (block.blockName === "acf/lw-carousel") {
-          return <CarouselBlock key={"block-" + index} block={block} />
-        } else if (block.blockName === "acf/lw-twoimages") {
-          return <TwoImages key={"block-" + index} block={block} />
-        } else if (block.blockName === "acf/lw-imagetext") {
-          return <ImageText key={"block-" + index} block={block} />
-        } else if (block.blockName === "core/embed") {
-          return <VideoBlock key={"block-" + index} block={block} />
-        }
-        return <Block key={"block-" + index} block={block} />
-      })}
-
+      <div className="article-body">
+        {content.blocks.map((block: any, index: number) => {
+          if (block.blockName === "acf/lw-carousel") {
+            return <CarouselBlock key={"block-" + index} block={block} />
+          } else if (block.blockName === "acf/lw-twoimages") {
+            return <TwoImages key={"block-" + index} block={block} />
+          } else if (block.blockName === "acf/lw-imagetext") {
+            return <ImageText key={"block-" + index} block={block} />
+          } else if (block.blockName === "core/embed") {
+            return <VideoBlock key={"block-" + index} block={block} />
+          } else if (block.blockName === "null" || !block.blockName) {
+            return <></>
+          }
+          return <Block key={"block-" + index} block={block} />
+        })}
+      </div>
       <MoreFromPosts article={content} />
     </WordPressContentStyles>
   )

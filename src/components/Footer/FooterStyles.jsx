@@ -10,19 +10,23 @@ export const FooterStyles = styled.footer`
   padding: 20px 0;
   margin-top: 120px;
 
+  @media ${DEVICE.xs} {
+    margin-top: 160px;
+    padding: 24px 0;
+    text-align: left;
+  }
+
   .flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  @media ${DEVICE.xs} {
-    margin-top: 160px;
-    padding: 24px 0;
-    justify-content: space-between;
-    flex-direction: row;
-    text-align: left;
+    @media ${DEVICE.xs} {
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: row;
+      text-align: left;
+    }
   }
 
   .logo {

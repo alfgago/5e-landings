@@ -128,31 +128,17 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     }
   }
 
-  .wp-content {
-    & > *:first-child {
-      margin-top: 30px;
+  .article-body {
+    margin-top: 30px;
 
-      @media ${DEVICE.xs} {
-        margin-top: 20px;
-      }
+    @media ${DEVICE.xs} {
+      margin-top: 20px;
     }
+  }
 
-    h1,
-    h2,
-    h3,
-    p,
-    ul,
-    ol,
-    .wp-block-embed {
-      max-width: 340px;
-
-      @media ${DEVICE.xs} {
-        max-width: 708px;
-      }
-
-      @media ${DEVICE.md} {
-        max-width: 670px;
-      }
+  .wp-content {
+    p > br:first-of-type {
+      display: none;
     }
 
     h2,
@@ -256,6 +242,7 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
         letter-spacing: -0.01em;
         max-width: 340px;
         margin-bottom: 20px;
+        margin-top: 0;
         padding: 0;
 
         @media ${DEVICE.xs} {
@@ -282,10 +269,11 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     }
 
     .wp-block-image {
-      margin: 60px auto;
+      margin: 40px auto;
       max-width: 340px;
 
       @media ${DEVICE.xs} {
+        margin: 60px auto;
         max-width: 708px;
       }
 

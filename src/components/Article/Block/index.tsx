@@ -11,12 +11,14 @@ import { BlockStyles } from "./BlockStyles"
 
 const Block = ({ block }: any) => {
   return (
-    <BlockStyles
-      className="content wp-content"
-      dangerouslySetInnerHTML={{
-        __html: block.innerHTML,
-      }}
-    />
+    <BlockStyles className="content">
+      <div
+        className="wp-content"
+        dangerouslySetInnerHTML={{
+          __html: block.innerHTML,
+        }}
+      />
+    </BlockStyles>
   )
 }
 

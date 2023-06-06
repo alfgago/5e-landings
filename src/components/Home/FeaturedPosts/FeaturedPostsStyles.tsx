@@ -27,6 +27,11 @@ export const FeaturedPostsStyles = styled.section`
     @media ${DEVICE.xl} {
       width: 430px;
     }
+
+    img.reg {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .post {

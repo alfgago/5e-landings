@@ -46,6 +46,7 @@ const ListPost = ({ post, isFeatured, index = 0 }: any) => {
               placeholder="blur"
               blurDataURL="/assets/blur-pink.jpg"
               style={{ maxWidth: 586, maxHeight: 390 }}
+              className="reg"
             />
           )}
         </div>

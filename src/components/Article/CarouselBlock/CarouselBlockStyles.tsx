@@ -35,6 +35,7 @@ export const CarouselBlockStyles = styled.div`
       font-weight: 400;
       font-size: 14px;
       line-height: 19px;
+      min-height: 20px;
 
       @media ${DEVICE.xs} {
         margin-top: 15px;

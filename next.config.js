@@ -13,6 +13,7 @@ const nextConfig = {
       "live-learningwell-wp.pantheonsite.io",
       "test-learningwell-wp.pantheonsite.io",
       "dev-learningwell-wp.pantheonsite.io",
+      "lw-dev.stag.host",
       "learningwell.org",
     ],
   },

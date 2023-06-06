@@ -9,7 +9,6 @@ export const ImageTextStyles = styled.div`
   gap: 40px;
   justify-content: center;
   margin-top: 40px;
-  margin-bottom: 40px;
 
   @media ${DEVICE.xs} {
     flex-direction: row;
