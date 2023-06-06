@@ -2,7 +2,7 @@ import Head from "next/head"
 import axios from "axios"
 import parse from "html-react-parser"
 
-import { HomeStyles } from "@/components/Home/HomeStyles"
+import { SolicitudesStyles } from "@/components/Solicitudes/SolicitudesStyles"
 import { cleanYoast } from "@/utils/cleanYoast"
 
 const Index = ({ page, yoast }: any) => {
@@ -10,7 +10,7 @@ const Index = ({ page, yoast }: any) => {
   return (
     <>
       <Head>{parse(yoast)}</Head>
-      <HomeStyles>EJEMPLO HOME</HomeStyles>
+      <SolicitudesStyles>EJEMPLO HOME</SolicitudesStyles>
     </>
   )
 }
@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
     process.env.NEXT_PUBLIC_WORDPRESS_URL ?? "https://consisa.5e.cr/"
   const domain = process.env.NEXT_PUBLIC_DOMAIN ?? "http://consisa.com"
 
-  const url = `${wpUrl}/wp-json/wp/v2/pages?slug=inicio`
+  const url = `${wpUrl}/wp-json/wp/v2/pages?slug=solicitudes`
   const res = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",

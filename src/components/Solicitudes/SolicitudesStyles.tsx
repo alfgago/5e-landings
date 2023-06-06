@@ -2,6 +2,6 @@ import styled from "styled-components"
 
 import { COLORS, DEVICE } from "@/styles/variables"
 
-export const ArticleStyles = styled.section`
+export const SolicitudesStyles = styled.section`
   position: relative;
 `
