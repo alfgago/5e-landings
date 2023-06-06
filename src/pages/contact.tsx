@@ -2,6 +2,7 @@ import Head from "next/head"
 import axios from "axios"
 import parse from "html-react-parser"
 
+import ContactForm from "@/components/Contact/ContactoForm"
 import { ContactStyles } from "@/components/Contact/ContactStyles"
 import PageHeader from "@/components/PageHeader"
 import { cleanYoast } from "@/utils/cleanYoast"
@@ -29,6 +30,7 @@ const Index = ({ page, yoast }: any) => {
           paragraph={headerContent.paragraph}
           location="contact"
         />
+        <ContactForm />
       </ContactStyles>
     </>
   )

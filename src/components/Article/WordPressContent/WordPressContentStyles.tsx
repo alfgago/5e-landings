@@ -8,16 +8,18 @@ interface WordpressArticleProps {
 
 export const WordPressContentStyles = styled.section<WordpressArticleProps>`
   position: relative;
-  padding-top: 18px;
+  padding-top: 17px;
 
   @media ${DEVICE.xs} {
     margin-top: 30px;
+    padding-top: 30px;
   }
 
   .small {
     @media ${DEVICE.md} {
       display: flex;
       flex-direction: row-reverse;
+      justify-content: space-between;
       gap: 30px;
     }
   }
@@ -32,15 +34,17 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     }
 
     @media ${DEVICE.md} {
-      width: ${(props) => (props.highlight === "small" ? "900px" : "100%")};
+      width: ${(props) => (props.highlight === "small" ? "495px" : "100%")};
       height: ${(props) => (props.highlight === "small" ? "371px" : "480px")};
     }
 
     @media ${DEVICE.lg} {
+      width: ${(props) => (props.highlight === "small" ? "670px" : "100%")};
       height: ${(props) => (props.highlight === "small" ? "502px" : "650px")};
     }
 
     @media ${DEVICE.xl} {
+      width: ${(props) => (props.highlight === "small" ? "900px" : "100%")};
       height: ${(props) => (props.highlight === "small" ? "674px" : "866px")};
     }
     img {
@@ -53,6 +57,14 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
     justify-content: center;
     flex-direction: column;
 
+    @media ${DEVICE.md} {
+      width: ${(props) => props.highlight === "small" && "495px"};
+    }
+
+    @media ${DEVICE.lg} {
+      width: ${(props) => props.highlight === "small" && "670px"};
+    }
+
     .post-categories {
       display: inline-flex;
       flex-wrap: wrap;
@@ -62,6 +74,10 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
 
       @media ${DEVICE.xs} {
         margin-top: 30px;
+      }
+
+      @media ${DEVICE.md} {
+        margin-top: ${(props) => (props.highlight === "small" ? "0" : "30px")};
       }
     }
 
@@ -97,7 +113,7 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
       font-size: 22px;
       line-height: 26px;
       margin: auto;
-      max-width: 100%;
+      max-width: 340px;
 
       @media ${DEVICE.xs} {
         font-size: 26px;
@@ -106,8 +122,14 @@ export const WordPressContentStyles = styled.section<WordpressArticleProps>`
       }
 
       @media ${DEVICE.md} {
-        max-width: 669px;
-        margin: ${(props) => (props.highlight === "small" ? "0" : "auto")};
+        max-width: ${(props) =>
+          props.highlight === "small" ? "495px" : "669px"};
+        margin: ${(props) => (props.highlight === "small" ? "0 auto" : "auto")};
+      }
+
+      @media ${DEVICE.lg} {
+        max-width: ${(props) =>
+          props.highlight === "small" ? "514px" : "669px"};
       }
 
       p {
