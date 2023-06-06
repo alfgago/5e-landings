@@ -16,5 +16,12 @@ export const BlockStyles = styled.div`
     @media ${DEVICE.md} {
       max-width: 670px;
     }
+
+    p,
+    li {
+      a {
+        text-decoration: underline;
+      }
+    }
   }
 `

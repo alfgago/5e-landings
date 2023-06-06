@@ -25,6 +25,11 @@ export const PolicyStyles = styled.section`
     line-height: 28px;
     letter-spacing: 0em;
 
+    margin-top: 40px;
+    @media ${DEVICE.xs} {
+      margin-top: 60px;
+    }
+
     @media screen and (min-width: 1080px) {
       //styleName: Tablet/H5;
       font-size: 28px;
@@ -50,6 +55,10 @@ export const PolicyStyles = styled.section`
 
     @media ${DEVICE.md} {
       width: 670px;
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 `
