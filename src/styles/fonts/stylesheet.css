@@ -1,94 +1,18 @@
-/*
- *
- * INSTRUCTIONS
- *
- * Copy the Legal Disclaimer and the @font-faces statements to your regular CSS file.
- * The font file(s) should be placed relative to the regular CSS file.
- *
- */
-
-/*
- * Legal Disclaimer for Web licence
- *
- * Licence to use self-hosted webfonts for displaying dynamic text on specified website domains. Our package includes WOFF and WOFF2 font formats.
- *
- * Should the license page views limit be exceeded the license holder will be required to contact Lineto.com for an upgrade.
- * 
- * It is strictly prohibited to rename the font and to download or use these fonts in any other media. 
- * 
- * These Web fonts are licensed exclusively for the use on the following domain(s) and their subdomains:
- *
- * learningwellmag.org (monthly pageviews: <50K)
- *
- */
-
 @font-face {
-    font-family: 'Monument Grotesk';
-    src: url('ABCMonumentGrotesk-Regular.woff2') format('woff2'),
-        url('ABCMonumentGrotesk-Regular.woff') format('woff'),
-        url('ABCMonumentGrotesk-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "DIN Pro";
+  src: url("DINPro.woff2") format("woff2"), url("DINPro.woff") format("woff"),
+    url("DINPro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Monument Grotesk';
-    src: url('ABCMonumentGrotesk-RegularItalic.woff2') format('woff2'),
-        url('ABCMonumentGrotesk-RegularItalic.woff') format('woff'),
-        url('ABCMonumentGrotesk-RegularItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Indian Strength";
+  src: url("IndianStrengthPersonalUse.woff2") format("woff2"),
+    url("IndianStrengthPersonalUse.woff") format("woff"),
+    url("IndianStrengthPersonalUse.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
-
-@font-face {
-    font-family: 'Bradford LL';
-    src: url('BradfordLL-LightItalic.woff2') format('woff2'),
-        url('BradfordLL-LightItalic.woff') format('woff'),
-        url('BradfordLL-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bradford LL';
-    src: url('BradfordLL-Italic.woff2') format('woff2'),
-        url('BradfordLL-Italic.woff') format('woff'),
-        url('BradfordLL-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bradford LL';
-    src: url('BradfordLL-Light.woff2') format('woff2'),
-        url('BradfordLL-Light.woff') format('woff'),
-        url('BradfordLL-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bradford LL';
-    src: url('BradfordLL-Regular.woff2') format('woff2'),
-        url('BradfordLL-Regular.woff') format('woff'),
-        url('BradfordLL-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bradford LL';
-    src: url('BradfordLL-Bold.woff2') format('woff2'),
-        url('BradfordLL-Bold.woff') format('woff'),
-        url('BradfordLL-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
