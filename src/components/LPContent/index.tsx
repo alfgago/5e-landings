@@ -10,7 +10,6 @@ const LPContent = ({
   prideBig = "pride in our work",
   textSide,
 }: any) => {
-  const contactUsText = "contact us"
   return (
     <LPContentStyles>
       <div className="content">

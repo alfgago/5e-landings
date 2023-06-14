@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <FooterStyles>
       <section className="footer">
-        <div className="content">FOOTER</div>
+        <div className="content" />
       </section>
     </FooterStyles>
   )

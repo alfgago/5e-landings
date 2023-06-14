@@ -5,6 +5,7 @@ import { COLORS, DEVICE } from "@/styles/variables"
 export const LPContentStyles = styled.section`
   position: relative;
   margin: 12rem 0;
+  margin-bottom: 1rem;
 
   &:before {
     content: "";
@@ -142,6 +143,7 @@ export const LPContentStyles = styled.section`
   }
 
   .pride {
+    position: relative;
     .h2 {
       display: block;
       margin-top: -1rem;

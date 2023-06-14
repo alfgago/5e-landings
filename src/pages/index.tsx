@@ -3,8 +3,10 @@ import parse from "html-react-parser"
 
 import Banner from "@/components/Banner"
 import Button from "@/components/Button"
+import ContactBanner from "@/components/ContactBanner"
 import { HomeStyles } from "@/components/Home/HomeStyles"
 import LPContent from "@/components/LPContent"
+import VideoScrollBanner from "@/components/VideoScrollBanner"
 
 const Index = () => {
   const siteTitle = "Pixel Perfect Web Sites - 5e Labs"
@@ -30,6 +32,8 @@ const Index = () => {
       <HomeStyles>
         <Banner title={bannerTitle} copy={bannerCopy} />
         <LPContent text1={lpText1} text2={lpText2} textSide={textSide} />
+        <VideoScrollBanner />
+        <ContactBanner />
       </HomeStyles>
     </>
   )

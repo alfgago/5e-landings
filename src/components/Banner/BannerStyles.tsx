@@ -52,6 +52,12 @@ export const BannerStyles = styled.section`
     right: 0;
     color: #ff2600;
     font-size: 3rem;
+    transition: 0.5s ease all;
+    text-shadow: 0 0 15px rgba(255, 38, 0, 0);
+
+    &:hover {
+      text-shadow: 0 0 15px rgba(255, 38, 0, 1);
+    }
   }
 
   #mirror-bg {
